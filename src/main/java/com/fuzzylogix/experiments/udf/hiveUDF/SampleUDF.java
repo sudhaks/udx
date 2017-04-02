@@ -26,7 +26,7 @@ import java.util.List;
  *
  */
 
-public class SampleUDF_v1 extends GenericUDF
+public class SampleUDF extends GenericUDF
 {
     private PrimitiveObjectInspector nameOI = null;
 

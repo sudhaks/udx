@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+DataFiles/
+UDFTest.zip
+experiments-1.2.jar
+target/
+warehouse/
