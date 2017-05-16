@@ -1,4 +1,7 @@
 
+
+-- beeline -u jdbc:hive2://localhost:10000
+
 ===========================================================
 --        HiveServer : Hive UDFs with Spark App
 ===========================================================
@@ -7,7 +10,9 @@
 
 DROP FUNCTION SampleUDF_SparkApp_v1_local_03;
 
-CREATE FUNCTION SampleUDF_SparkApp_v1_local_03 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleUDF_SparkApp_v1_local' USING JAR '/root/Data/experiments-1.2.jar';
+CREATE FUNCTION SampleUDF_SparkApp_v1_local_03
+AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleUDF_SparkApp_v1_local'
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleUDF_SparkApp_v1_local_03;
 
@@ -20,7 +25,7 @@ DROP FUNCTION SampleSparkUDTF_localV1_01;
 
 CREATE FUNCTION SampleSparkUDTF_localV1_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_localV1'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_localV1_01;
 
@@ -32,7 +37,7 @@ DROP FUNCTION SampleSparkUDTF_localV2_01;
 
 CREATE FUNCTION SampleSparkUDTF_localV2_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_localV2'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_localV2_01;
 
@@ -44,7 +49,7 @@ DROP FUNCTION SampleSparkUDTF_localV3_02;
 
 CREATE FUNCTION SampleSparkUDTF_localV3_02
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_localV3'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_localV3_02;
 
@@ -62,7 +67,7 @@ DROP FUNCTION SampleSparkUDTF_yarnV1_01;
 
 CREATE FUNCTION SampleSparkUDTF_yarnV1_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV1'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_yarnV1_01;
 
@@ -74,7 +79,7 @@ DROP FUNCTION SampleSparkUDTF_yarnV2_01;
 
 CREATE FUNCTION SampleSparkUDTF_yarnV2_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV2'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_yarnV2_01;
 
@@ -86,7 +91,7 @@ DROP FUNCTION SampleSparkUDTF_yarnV3_02;
 
 CREATE FUNCTION SampleSparkUDTF_yarnV3_02
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV3'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_yarnV3_02;
 
@@ -104,7 +109,7 @@ DROP FUNCTION SampleSparkUDTF_V1_01;
 
 CREATE FUNCTION SampleSparkUDTF_V1_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V1'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_V1_01;
 
@@ -116,7 +121,7 @@ DROP FUNCTION SampleSparkUDTF_V2_01;
 
 CREATE FUNCTION SampleSparkUDTF_V2_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V2'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_V2_01;
 
@@ -129,7 +134,7 @@ DROP FUNCTION SampleSparkUDTF_V3_01;
 
 CREATE FUNCTION SampleSparkUDTF_V3_01
 AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V3'
-USING JAR '/root/Data/experiments-1.2.jar';
+USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_V3_01;
 

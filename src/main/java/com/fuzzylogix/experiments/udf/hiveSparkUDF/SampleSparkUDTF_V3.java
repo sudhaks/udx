@@ -87,15 +87,22 @@ public class SampleSparkUDTF_V3 extends GenericUDTF {
     {
         SparkSession spark = SparkSession
                 .builder()
-                .master("yarn")
+                .master("local")
+                .enableHiveSupport()
+                .appName("Some random 987")
                 .getOrCreate();
 
 //        System.out.println("--------\n\n");
 //        System.out.println( spark.version() );
 //        System.out.println("\n\n--------\n\n");
 //
+
+        Class x = SampleSparkUDTF_V3.class;
+
         Long countRows =  589L;
         return countRows;
+
+
     }
 }
 

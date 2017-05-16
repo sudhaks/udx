@@ -11,6 +11,8 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.WritableConstantStringObjectInspector;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.SparkSession;
+import scala.Option;
+import scala.Some;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,11 +86,12 @@ public class SampleSparkUDTF_V1 extends GenericUDTF {
         // do nothing
     }
 
-    static Long sparkJob(String tableName)
-    {
+    static Long sparkJob(String tableName) {
         SparkSession spark = SparkSession
                 .builder()
-                .master("yarn")
+                .enableHiveSupport()
+                .master("yarn-client")
+                .appName("SampleSparkUDTF_V1")
                 .getOrCreate();
 
         Dataset inputData = spark.read().table(tableName);
@@ -97,5 +100,7 @@ public class SampleSparkUDTF_V1 extends GenericUDTF {
 
         return countRows;
     }
+
+
 }
 
