@@ -5,6 +5,7 @@ beeline -u jdbc:hive2://localhost:10016
 
 
 su - hdfs -c "hdfs dfs -chmod -R 777 /"
+
 hdfs dfs -mkdir /user/root
 hdfs dfs -put -f experiments-1.2.jar
 

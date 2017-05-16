@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * ==== Local Spark App Reading Hive Table ======
+ *
  * This is the class for a sample User Defined Table Function (UDTF)
  * inside which a spark app is launched with master:local
  *

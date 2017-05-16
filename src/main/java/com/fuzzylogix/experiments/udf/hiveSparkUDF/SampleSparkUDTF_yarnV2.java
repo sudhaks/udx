@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * ==== Yarn Spark App Reading HDFS File======
+ *
  * This is the class for a sample User Defined Table Function (UDTF)
  * inside which a spark app is launched with master:local
  *
@@ -89,9 +91,8 @@ public class SampleSparkUDTF_yarnV2 extends GenericUDTF {
     {
         SparkSession spark = SparkSession
                 .builder()
-                .master("yarn-cluster")
                 .enableHiveSupport()
-                .appName("SampleSparkUDTF_yarnV2")
+                .master("yarn")
                 .getOrCreate();
 
         Dataset inputData = spark.read().csv(fileName);

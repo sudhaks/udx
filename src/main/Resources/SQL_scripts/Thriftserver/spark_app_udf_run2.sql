@@ -105,7 +105,7 @@ SELECT SampleSparkUDTF_yarnV3_02('San Francisco', 'sampleData');
 DROP FUNCTION SampleSparkUDTF_V1_01;
 
 CREATE FUNCTION SampleSparkUDTF_V1_01
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V1'
+AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV1rnV1'
 USING JAR '/root/Data/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_V1_01;
@@ -117,7 +117,7 @@ SELECT SampleSparkUDTF_V1_01('San Francisco', 'sampleData');
 DROP FUNCTION SampleSparkUDTF_V2_01;
 
 CREATE FUNCTION SampleSparkUDTF_V2_01
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V2'
+AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV2rnV2'
 USING JAR '/root/Data/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_V2_01;

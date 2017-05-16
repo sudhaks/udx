@@ -3,21 +3,23 @@
 -- beeline -u jdbc:hive2://localhost:10000
 
 ===========================================================
---        HiveServer : Hive UDFs with Spark App
+--        HiveServer : Plain Hive UDTF
 ===========================================================
 
------------- UDF  Exmaple -------------
 
-DROP FUNCTION SampleUDF_SparkApp_v1_local_03;
+DROP FUNCTION SampleUDTF_01;
 
-CREATE FUNCTION SampleUDF_SparkApp_v1_local_03
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleUDF_SparkApp_v1_local'
+CREATE FUNCTION SampleUDTF_01 AS 'com.fuzzylogix.experiments.udf.hiveUDF.SampleUDTF'
 USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
-DESCRIBE FUNCTION SampleUDF_SparkApp_v1_local_03;
+DESCRIBE FUNCTION SampleUDTF_01;
 
-SELECT SampleUDF_SparkApp_v1_local_03('sampleData');
+SELECT SampleUDTF_01('Paris', 3, 2);
 
+
+===========================================================
+--        HiveServer : Hive UDTFs with Spark App
+===========================================================
 
 ------------ UDTF Exmaple: Local Spark App : Reading table -------------
 
@@ -43,20 +45,6 @@ DESCRIBE FUNCTION SampleSparkUDTF_localV2_01;
 
 SELECT SampleSparkUDTF_localV2_01('San Francisco', 'sampleData');
 
------------- UDTF Exmaple: Local Spark App : Doing nothing -------------
-
-DROP FUNCTION SampleSparkUDTF_localV3_02;
-
-CREATE FUNCTION SampleSparkUDTF_localV3_02
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_localV3'
-USING JAR 'hdfs:///user/root/experiments-1.2.jar';
-
-DESCRIBE FUNCTION SampleSparkUDTF_localV3_02;
-
-SELECT SampleSparkUDTF_localV3_02('San Francisco', 'sampleData');
-
-
-----------------------------------------------------------
 ----------------------------------------------------------
 ------------ UDTF Exmaple: Yarn Spark App ----------------
 ----------------------------------------------------------
@@ -84,60 +72,4 @@ USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 DESCRIBE FUNCTION SampleSparkUDTF_yarnV2_01;
 
 SELECT SampleSparkUDTF_yarnV2_01('San Francisco', 'sampleData');
-
------------- UDTF Exmaple: yarn Spark App : Doing nothing -------------
-
-DROP FUNCTION SampleSparkUDTF_yarnV3_02;
-
-CREATE FUNCTION SampleSparkUDTF_yarnV3_02
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_yarnV3'
-USING JAR 'hdfs:///user/root/experiments-1.2.jar';
-
-DESCRIBE FUNCTION SampleSparkUDTF_yarnV3_02;
-
-SELECT SampleSparkUDTF_yarnV3_02('San Francisco', 'sampleData');
-
-
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
---------- UDTF Exmaple: Spark App using thrift server context ----------------
-------------------------------------------------------------------------------
-
------------- Spark App: reading from table -------------
-
-DROP FUNCTION SampleSparkUDTF_V1_01;
-
-CREATE FUNCTION SampleSparkUDTF_V1_01
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V1'
-USING JAR 'hdfs:///user/root/experiments-1.2.jar';
-
-DESCRIBE FUNCTION SampleSparkUDTF_V1_01;
-
-SELECT SampleSparkUDTF_V1_01('San Francisco', 'sampleData');
-
------------- Spark App: reading from file -------------
-
-DROP FUNCTION SampleSparkUDTF_V2_01;
-
-CREATE FUNCTION SampleSparkUDTF_V2_01
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V2'
-USING JAR 'hdfs:///user/root/experiments-1.2.jar';
-
-DESCRIBE FUNCTION SampleSparkUDTF_V2_01;
-
-SELECT SampleSparkUDTF_V2_01('San Francisco', 'sampleData');
-
-
------------- Spark App: spark just being initialized, no process being done.  -------------
-
-DROP FUNCTION SampleSparkUDTF_V3_01;
-
-CREATE FUNCTION SampleSparkUDTF_V3_01
-AS 'com.fuzzylogix.experiments.udf.hiveSparkUDF.SampleSparkUDTF_V3'
-USING JAR 'hdfs:///user/root/experiments-1.2.jar';
-
-DESCRIBE FUNCTION SampleSparkUDTF_V3_01;
-
-SELECT SampleSparkUDTF_V3_01('San Francisco', 'sampleData');
-
 

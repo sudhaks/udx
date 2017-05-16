@@ -11,11 +11,15 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.WritableConstantStringObjectInspector;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.SparkSession;
+import scala.Option;
+import scala.Some;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * ==== Yarn Spark App Reading Hive Table======
+ *
  * This is the class for a sample User Defined Table Function (UDTF)
  * inside which a spark app is launched with master:yarn
  *
@@ -84,12 +88,11 @@ public class SampleSparkUDTF_yarnV1 extends GenericUDTF {
         // do nothing
     }
 
-    static Long sparkJob(String tableName)
-    {
+    static Long sparkJob(String tableName) {
         SparkSession spark = SparkSession
                 .builder()
-                .master("yarn-cluster")
                 .enableHiveSupport()
+                .master("yarn-client")
                 .appName("SampleSparkUDTF_yarnV1")
                 .getOrCreate();
 
@@ -99,5 +102,7 @@ public class SampleSparkUDTF_yarnV1 extends GenericUDTF {
 
         return countRows;
     }
+
+
 }
 
