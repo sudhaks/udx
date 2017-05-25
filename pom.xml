@@ -52,7 +52,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-yarn_${scala.compat.version}</artifactId>
@@ -60,5 +59,37 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>only-library</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>bin/${project.artifactId}-${project.version}-sources.jar</outputFile>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.apache.spark:*</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
 
 </project>

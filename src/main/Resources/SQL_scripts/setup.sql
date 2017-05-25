@@ -9,7 +9,6 @@ su - hdfs -c "hdfs dfs -chmod -R 777 /"
 hdfs dfs -mkdir /user/root
 hdfs dfs -put -f experiments-1.2.jar
 
-
 ------------------------------------------------------------
 ------------------------------------------------------------
 
@@ -26,12 +25,11 @@ CREATE TABLE sampleData(
 -- Insert data into the Sample Data table
 hdfs dfs -put -f sampledata.dat
 
+su - hdfs -c "hdfs dfs -chmod -R 777 /"
 load data inpath 'hdfs:///user/root/sampledata.dat' OVERWRITE into table sampleData;
 
-SELECT *
-FROM sampleData LIMIT 10;
+SELECT * FROM sampleData LIMIT 10;
 
-SELECT count(*)
-FROM sampleData;
+SELECT count(*) FROM sampleData;
 
 
