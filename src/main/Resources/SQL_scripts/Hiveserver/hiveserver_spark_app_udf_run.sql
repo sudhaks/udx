@@ -43,7 +43,7 @@ USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_yarnV2_01;
 
-SELECT SampleSparkUDTF_yarnV2_01('San Francisco', 'sampleData');
+SELECT SampleSparkUDTF_yarnV2_01('San Francisco', 'hdfs:///user/root/samplefile.csv');
 
 
 ----------------------------------------------------------
@@ -72,6 +72,6 @@ USING JAR 'hdfs:///user/root/experiments-1.2.jar';
 
 DESCRIBE FUNCTION SampleSparkUDTF_localV2_01;
 
-SELECT SampleSparkUDTF_localV2_01('San Francisco', 'sampleData');
+SELECT SampleSparkUDTF_localV2_01('San Francisco', 'hdfs:///user/root/samplefile.csv' );
 
 

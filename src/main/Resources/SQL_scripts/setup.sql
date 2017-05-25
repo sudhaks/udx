@@ -24,6 +24,7 @@ CREATE TABLE sampleData(
 
 -- Insert data into the Sample Data table
 hdfs dfs -put -f sampledata.dat
+hdfs dfs -put -f samplefile.csv
 
 su - hdfs -c "hdfs dfs -chmod -R 777 /"
 load data inpath 'hdfs:///user/root/sampledata.dat' OVERWRITE into table sampleData;
