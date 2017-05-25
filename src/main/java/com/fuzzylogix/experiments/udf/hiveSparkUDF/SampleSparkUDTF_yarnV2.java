@@ -91,7 +91,6 @@ public class SampleSparkUDTF_yarnV2 extends GenericUDTF {
     {
         SparkSession spark = SparkSession
                 .builder()
-                .enableHiveSupport()
                 .master("yarn")
                 .getOrCreate();
 

@@ -92,7 +92,6 @@ public class SampleSparkUDTF_localV2 extends GenericUDTF {
         SparkSession spark = SparkSession
                 .builder()
                 .master("local")
-                .enableHiveSupport()
                 .appName("SampleSparkUDTF_localV2")
                 .getOrCreate();
 
