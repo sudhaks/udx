@@ -33,7 +33,7 @@ DESCRIBE FUNCTION SampleSparkUDTF_yarnV1_01;
 
 SELECT SampleSparkUDTF_yarnV1_01('San Francisco', 'sampleData');  
 
------------- UDTF Exmaple: Local Spark App : Reading from CSV file -------------
+------------ UDTF Exmaple: Yarn Spark App : Reading from CSV file -------------
 
 DROP FUNCTION SampleSparkUDTF_yarnV2_01;
 

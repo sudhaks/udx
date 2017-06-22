@@ -20,17 +20,23 @@ CREATE TABLE sampleData(
   obsID int,
   dimID int,
   Value double)
-  row format delimited fields terminated by '|';
+  ROW format delimited fields terminated by '|';
 
--- Insert data into the Sample Data table
-hdfs dfs -put -f sampledata.dat
-hdfs dfs -put -f samplefile.csv
+INSERT INTO sampleData
+SELECT *
+FROM ( SELECT stack(4,
+       1,1,101.01,
+       1,2,123.23,
+       2,1,34.34,
+       2,3,56.76)  ) a;
 
-su - hdfs -c "hdfs dfs -chmod -R 777 /"
-load data inpath 'hdfs:///user/root/sampledata.dat' OVERWRITE into table sampleData;
 
-SELECT * FROM sampleData LIMIT 10;
-
+SELECT * FROM sampleData;
 SELECT count(*) FROM sampleData;
+
+
+-- Put a cample csv file for testing
+hdfs dfs -put -f samplefile.csv
+su - hdfs -c "hdfs dfs -chmod -R 777 /"
 
 

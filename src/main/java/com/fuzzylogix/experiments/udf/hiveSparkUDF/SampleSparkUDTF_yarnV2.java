@@ -92,6 +92,7 @@ public class SampleSparkUDTF_yarnV2 extends GenericUDTF {
         SparkSession spark = SparkSession
                 .builder()
                 .master("yarn")
+                .appName("SampleSparkUDTF_yarnV2")
                 .getOrCreate();
 
         Dataset inputData = spark.read().csv(fileName);

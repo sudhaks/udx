@@ -96,6 +96,8 @@ public class SampleSparkUDTF_yarnV1 extends GenericUDTF {
                 .appName("SampleSparkUDTF_yarnV1")
                 .getOrCreate();
 
+//        spark.sparkContext().addJar("hdfs:///user/root/hive-metastore-1.2.1.spark2.jar");
+
         Dataset inputData = spark.read().table(tableName);
 
         Long countRows =  inputData.count();
