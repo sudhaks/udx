@@ -33,5 +33,3 @@
     
 8.  Expected result:
     SampleSparkUDTF_yarnv1_01 to complete successfully.
-
-
