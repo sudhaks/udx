@@ -88,7 +88,7 @@ public class SampleUDTF extends GenericUDTF {
             ArrayList<Object> outList = new ArrayList<Object>();
 
             //the first column is just modification of the first input parameter
-            outList.add("***" + pName + "***_feature 2 ");
+            outList.add("***" + pName + "***_feature 1 ");
 
             //the next columns would be just some numbers
             for (int j = 0; j < pCols; j += 1)
